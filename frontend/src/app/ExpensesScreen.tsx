@@ -7,6 +7,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  Container,
+  Grid,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
@@ -54,42 +56,50 @@ export default function ExpensesScreen() {
   return (
     <>
       <header>
-        <InputLabel id="yearLabel">Ano</InputLabel>
-        <Select
-          labelId="yearLabel"
-          id="year"
-          value={selectedYear}
-          onChange={handleYearChange}
-        >
-          <MenuItem value={2021}>2021</MenuItem>
-          <MenuItem value={2020}>2020</MenuItem>
-        </Select>
-        <InputLabel id="monthLabel">Mês</InputLabel>
-        <Select
-          labelId="monthLabel"
-          id="month"
-          value={selectedMonth}
-          onChange={handleMonthChange}
-        >
-          <MenuItem value={"01"}>Janeiro</MenuItem>
-          <MenuItem value={"02"}>Fevereiro</MenuItem>
-          <MenuItem value={"03"}>Março</MenuItem>
-          <MenuItem value={"04"}>Abril</MenuItem>
-          <MenuItem value={"05"}>Maio</MenuItem>
-          <MenuItem value={"06"}>Junho</MenuItem>
-          <MenuItem value={"07"}>Julho</MenuItem>
-          <MenuItem value={"08"}>Agosto</MenuItem>
-          <MenuItem value={"09"}>Setembro</MenuItem>
-          <MenuItem value={"10"}>Outubro</MenuItem>
-          <MenuItem value={"11"}>Novembro</MenuItem>
-          <MenuItem value={"12"}>Dezembro</MenuItem>
-        </Select>
-        <div>
-          Despesa total:{" "}
-          <span style={{ fontWeight: "bold" }}>
-            R$ {totalExpense.toLocaleString()}
-          </span>
-        </div>
+        <Grid container spacing={4} justify="center" alignItems="center">
+          <Grid item xs={1}>
+            <InputLabel id="yearLabel">Ano</InputLabel>
+            <Select
+              labelId="yearLabel"
+              id="year"
+              value={selectedYear}
+              onChange={handleYearChange}
+            >
+              <MenuItem value={2021}>2021</MenuItem>
+              <MenuItem value={2020}>2020</MenuItem>
+            </Select>
+          </Grid>
+          <Grid item xs={1}>
+            <InputLabel id="monthLabel">Mês</InputLabel>
+            <Select
+              labelId="monthLabel"
+              id="month"
+              value={selectedMonth}
+              onChange={handleMonthChange}
+            >
+              <MenuItem value={"01"}>Janeiro</MenuItem>
+              <MenuItem value={"02"}>Fevereiro</MenuItem>
+              <MenuItem value={"03"}>Março</MenuItem>
+              <MenuItem value={"04"}>Abril</MenuItem>
+              <MenuItem value={"05"}>Maio</MenuItem>
+              <MenuItem value={"06"}>Junho</MenuItem>
+              <MenuItem value={"07"}>Julho</MenuItem>
+              <MenuItem value={"08"}>Agosto</MenuItem>
+              <MenuItem value={"09"}>Setembro</MenuItem>
+              <MenuItem value={"10"}>Outubro</MenuItem>
+              <MenuItem value={"11"}>Novembro</MenuItem>
+              <MenuItem value={"12"}>Dezembro</MenuItem>
+            </Select>
+          </Grid>
+          <Grid item xs={4}>
+            <div>
+              Despesa total:{" "}
+              <span style={{ fontWeight: "bold" }}>
+                R$ {totalExpense.toLocaleString()}
+              </span>
+            </div>
+          </Grid>
+        </Grid>
       </header>
       <main>
         <Table>
